@@ -22,12 +22,19 @@ const store = createStore(
     reduxFirestore(firebase, fbConfig)
   )
 );
+const profileSpecificProps = {
+  userProfile: "users",
+  useFirestoreForProfile: true,
+  enableRedirectHandling: false,
+  resetBeforeLogin: false,
+};
 
 const rrfProps = {
   firebase,
   config: fbConfig,
   dispatch: store.dispatch,
   createFirestoreInstance,
+  config: profileSpecificProps,
 };
 
 ReactDOM.render(
