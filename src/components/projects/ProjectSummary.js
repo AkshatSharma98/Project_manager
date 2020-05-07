@@ -1,12 +1,20 @@
 import React from "react";
+import moment from "moment";
 
 const ProjectSummary = ({ project }) => {
+  //console.log(project);
+  const createdAt = project.createdAt
+    ? moment(project.createdAt.toDate()).calendar()
+    : "2 sep";
+  console.log(createdAt);
   return (
     <div className="card z-depth-0 project-summary ">
       <div className="card-content grey-text text-darken-3">
         <span className="card-title">{project.title}</span>
-        <p>Posted by the net ninja</p>
-        <p className="grey-text">3rd september 2am</p>
+        <p>
+          Posted by {project.authorFirstName} {project.authorLastName}
+        </p>
+        <p className="grey-text">{createdAt}</p>
       </div>
     </div>
   );
