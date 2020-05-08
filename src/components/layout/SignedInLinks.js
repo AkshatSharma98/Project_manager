@@ -1,23 +1,26 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
+import Button from "@material-ui/core/Button";
+
+
 
 const SignedInLinks = (props) => {
   return (
-    <ul className="right">
-      <li>
-        <NavLink to="/create">New Project</NavLink>
-      </li>
-      <li>
+    <React.Fragment>
+      <Button color="primary">
+        <Link to="/create">New Project</Link>
+      </Button>
+      <Button color="primary">
         <a onClick={props.signOut}>Log out</a>
-      </li>
-      <li>
-        <NavLink to="/" className="btn btn-floating pinklighten-1">
+      </Button>
+      <Button>
+        <Link to="/" className="btn btn-floating pinklighten-1">
           {props.profile.initials}
-        </NavLink>
-      </li>
-    </ul>
+        </Link>
+      </Button>
+    </React.Fragment>
   );
 };
 

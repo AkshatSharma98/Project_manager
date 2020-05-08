@@ -1,16 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const SignedOutLinks = () => {
   return (
-    <ul className="right">
-      <li>
-        <NavLink to="/signup">Signup</NavLink>
-      </li>
-      <li>
-        <NavLink to="/signin">Login</NavLink>
-      </li>
-    </ul>
+    <React.Fragment>
+      <Button color="primary">
+        <Link to="/signin">Sign In</Link>
+      </Button>
+      <Button color="primary">
+        <Link to="/signup">Sign Up</Link>
+      </Button>
+    </React.Fragment>
   );
 };
 
