@@ -20,7 +20,7 @@ class Dashboard extends Component {
             <ProjectList projects={projects} />
           </div>
           <div className="col s12 m5 offset-m1">
-            <Notifications  notifications={notifications}/>
+            <Notifications notifications={notifications} />
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => {
   return {
     projects: state.firestore.ordered.projects,
     auth: state.firebase.auth,
-    notifications: state.firestore.ordered.notifications
+    notifications: state.firestore.ordered.notifications,
   };
 };
 
@@ -41,10 +41,13 @@ export default compose(
   connect(mapStateToProps),
   firestoreConnect([
     {
-      collection: "projects",orderBy:['createdAt','desc']
+      collection: "projects",
+      orderBy: ["createdAt", "desc"],
     },
     {
-      collection: "notifications", limit: 3,orderBy:['time','desc']
+      collection: "notifications",
+      limit: 3,
+      orderBy: ["time", "desc"],
     },
   ])
 )(Dashboard);
